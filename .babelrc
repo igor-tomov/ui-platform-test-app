@@ -1,0 +1,21 @@
+{
+  "presets": ["react", "es2015", "stage-0"],
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  },
+  "plugins": [
+    [
+      "module-alias", [
+        { "src": "../../platform/platform-launcher", "expose": "platform-launcher" },
+        { "src": "../../platform/platform-core", "expose": "platform-core" },
+        { "src": "../../src", "expose": "src" },
+        { "src": "../../src/ui", "expose": "ui" }
+      ]
+    ],
+    [
+      "babel-plugin-transform-require-ignore", { "extensions": [".scss", ".css", ".svg"] }
+    ]
+  ]
+}

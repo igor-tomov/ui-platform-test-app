@@ -1,0 +1,12 @@
+@import './fonts.scss';
+
+.some-class {
+  color: red;
+  font-family: 'ArcherMedium';
+  background: url('./img/mario.png') no-repeat center;
+  background-size: contain;
+}
+
+input::placeholder {
+  color: gray;
+}

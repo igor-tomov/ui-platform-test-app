@@ -1,0 +1,4 @@
+node_modules/**
+public/**
+platform/platform-launcher/node_modules/**
+platform/platform-core/node_modules/**

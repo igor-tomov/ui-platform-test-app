@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'ArcherMedium';
+
+  src: url('./fonts/archer-medium-webfont.eot');
+  src:
+    url('./fonts/archer-medium-webfont.woff2') format('woff2'),
+    url('./fonts/archer-medium-webfont.woff') format('woff'),
+    url('./fonts/archer-medium-webfont.ttf')  format('truetype');
+}
