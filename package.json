@@ -11,7 +11,7 @@
     "eslint": "eslint ./",
     "stylelint": "stylelint \"./src/**/*.scss\" -s scss",
     "lint": "npm run eslint && npm run stylelint",
-    "postinstall": "concurrently \"cd ./platform/platform-launcher && npm install\" \"cd ./platform/platform-core && npm install\" ",
+    "postinstall": "cd ./platform/platform-core && npm install",
     "start:dev": "cd ./platform/platform-launcher && npm run start:dev",
     "build:dev": "webpack --watch --mode development --config ./webpack/webpack.config.js",
     "build:prod": "gulp prod",
