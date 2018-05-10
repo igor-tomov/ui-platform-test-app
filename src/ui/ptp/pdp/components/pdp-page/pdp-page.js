@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './img/icon/alert.icon.svg';
 import './img/icon/account.icon.svg';
 import './img/icon/arrow-down.icon.svg';
-import { SVGIcon } from 'platform-core/lib/react-components/SVGIcon';
+import { SVGIcon } from 'ui-platform-core/dist/lib/react-components/SVGIcon';
 import './style.scss';
 
 export class PdpPage extends Component {

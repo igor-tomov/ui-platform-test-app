@@ -1,6 +1,6 @@
 const path    = require('path');
 const webpack = require('webpack');
-const { resolvePagesSettings } = require('../platform/platform-core/lib/pages/pages-settings.resolver');
+const { resolvePagesSettings } = require('ui-platform-core/dist/lib/pages/pages-settings.resolver');
 
 
 const __DEV__ = process.env.NODE_ENV === 'development';

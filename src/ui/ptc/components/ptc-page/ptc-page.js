@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connectWithIoC } from 'platform-core/lib/react-enhancers/connectWithIoC';
+import { connectWithIoC } from 'ui-platform-core/dist/lib/react-enhancers/connectWithIoC';
 
 class _PtcPage extends Component {
   render() {
