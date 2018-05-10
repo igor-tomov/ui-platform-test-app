@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 const path = require('path');
-const { initApp } = require('ui-platform-launcher/lib/init-app');
-const launchApp = require('ui-platform-launcher/bin/www');
+const initApp = require('ui-platform-launcher/dist/lib/init-app').default;
+const launchApp = require('ui-platform-launcher/dist/bin/www');
 const { createServerIocContainer } = require('../platform/platform-core/lib/ui-application/server.ioc-container');
 
 
 
 const app = initApp({
-  rootPath: path.join(__dirname, '..', '..'),
+  rootPath: path.join(__dirname, '..'),
   serverIoCFactory: createServerIocContainer,
 });
 
