@@ -1,5 +1,5 @@
 {
-  "name": "ui-platform-react",
+  "name": "ui-platform-test-app",
   "version": "0.0.1",
   "description": "",
   "main": "src/index.js",
@@ -12,7 +12,7 @@
     "stylelint": "stylelint \"./src/**/*.scss\" -s scss",
     "lint": "npm run eslint && npm run stylelint",
     "postinstall": "cd ./platform/platform-core && npm install",
-    "start:dev": "cd ./platform/platform-launcher && npm run start:dev",
+    "start:dev": "NODE_ENV=development node ./bin/www-dev -c config/development.yaml",
     "build:dev": "webpack --watch --mode development --config ./webpack/webpack.config.js",
     "build:prod": "gulp prod",
     "test": "npm run test:app && npm run test:platform",
@@ -102,6 +102,7 @@
     "svg-sprite-loader": "^3.7.3",
     "svgo": "^1.0.5",
     "svgo-loader": "^2.1.0",
+    "ui-platform-launcher": "dynamic-talks/ui-platform-launcher#master",
     "url-loader": "^1.0.1",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",

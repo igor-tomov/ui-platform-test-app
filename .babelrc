@@ -8,10 +8,9 @@
   "plugins": [
     [
       "module-alias", [
-        { "src": "../../platform/platform-launcher", "expose": "platform-launcher" },
         { "src": "../../platform/platform-core", "expose": "platform-core" },
-        { "src": "../../src", "expose": "src" },
-        { "src": "../../src/ui", "expose": "ui" }
+        { "src": "./src", "expose": "src" },
+        { "src": "./src/ui", "expose": "ui" }
       ]
     ],
     [
