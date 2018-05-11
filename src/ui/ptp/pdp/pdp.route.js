@@ -1,10 +1,13 @@
+import { PDP_SET_PRODUCT_ID } from './actions';
+
+
+
 export default ({ router }) => {
   /* GET users listing. */
-  router.get('/', function(req, res) {
+  router.get('/:productId', function(req, res) {
     let { $app } = res;
 
-    $app.store.dispatch({ type: 'PDP_SET_STATE', payload: { initialised: true }});
-    $app.store.dispatch({ type: 'PDP_TITLE', payload: { title: 'Sample product' }});
+    $app.store.dispatch({ type: PDP_SET_PRODUCT_ID, payload: { productId: req.params.productId }});
 
     res.renderApp({
       title: 'Product page',
