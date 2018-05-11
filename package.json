@@ -12,7 +12,7 @@
     "stylelint": "stylelint \"./src/**/*.scss\" -s scss",
     "lint": "npm run eslint && npm run stylelint",
     "start:dev": "NODE_ENV=development node ./bin/www-dev -c config/development.yaml",
-    "build:dev": "webpack --watch --mode development --config ./webpack/webpack.config.js",
+    "build:dev": "NODE_ENV=development webpack --watch --mode development --config ./webpack/webpack.config.js",
     "build:prod": "gulp prod",
     "predeploy": "NODE_ENV=production gulp clean && npm run lint && npm run build:prod",
     "deploy": "gulp zip",

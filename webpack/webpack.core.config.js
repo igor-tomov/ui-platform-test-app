@@ -29,7 +29,7 @@ module.exports = () => ({
   },
 
   output: {
-    path: path.join(__dirname, '../', __PROD__ && 'dist/', 'public/build')
+    path: path.join(__dirname, '../', __PROD__ ? 'dist/' : '', 'public/build')
   },
 
 
