@@ -9,7 +9,7 @@ export default {
         return Object.assign(state, payload);
 
       default:
-        return state
+        return state;
     }
   }
-}
+};

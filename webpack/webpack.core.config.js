@@ -28,10 +28,8 @@ module.exports = () => ({
     ...pagesEntries
   },
 
-
-
   output: {
-    path: path.resolve(__dirname, '../public/build')
+    path: path.join(__dirname, '../', __PROD__ ? 'dist/' : '', 'public/build')
   },
 
 
