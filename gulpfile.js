@@ -5,6 +5,7 @@ const clean = require('gulp-clean');
 const babel = require('gulp-babel-compile');
 const gulpsync = require('gulp-sync')(gulp);
 const webpack = require('webpack');
+const zip = require('gulp-zip');
 
 const pjson = require('./package.json');
 const webpackConfig = require('./webpack/webpack.config');
@@ -74,6 +75,15 @@ gulp.task('set-version', () => {
     string_src('version', `${pjson.version}-${sha1}`)
       .pipe(gulp.dest(`${DIST_PATH}/`));
   });
+});
+
+gulp.task('zip', function () {
+  return gulp
+    .src([
+      DIST_PATH
+    ])
+    .pipe(zip('dist.zip'))
+    .pipe(gulp.dest('./'));
 });
 
 function string_src(filename, string) {

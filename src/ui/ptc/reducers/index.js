@@ -6,7 +6,7 @@ export default {
       case 'CHECKOUT_SET_STATE':
         return Object.assign({}, payload);
       default:
-        return state
+        return state;
     }
   },
   ping(state = { isPinging: false }, action) {
@@ -21,4 +21,4 @@ export default {
         return state;
     }
   }
-}
+};
