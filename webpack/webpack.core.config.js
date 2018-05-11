@@ -31,7 +31,7 @@ module.exports = () => ({
 
 
   output: {
-    path: path.resolve(__dirname, '../public/build')
+    path: path.resolve(__dirname, `../${__PROD__ ? 'dist/' : ''}public/build`)
   },
 
 
