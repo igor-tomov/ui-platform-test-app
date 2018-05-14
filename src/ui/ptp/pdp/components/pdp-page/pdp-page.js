@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { compose } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { enableBackgroundColorChanging } from '../../actions';
+import { connectWithIoC } from 'ui-platform-core/dist/lib/react-enhancers/connectWithIoC';
 import './img/icon/alert.icon.svg';
 import './img/icon/account.icon.svg';
 import './img/icon/arrow-down.icon.svg';
@@ -40,6 +42,8 @@ export class PdpPage extends Component {
         <p>
           <a href="/ptc">Go to Checkout</a>
         </p>
+        <div>
+        </div>
         <p>
           <SVGIcon icon="alert.icon"/>
           <SVGIcon icon="account.icon"/>
@@ -52,7 +56,10 @@ export class PdpPage extends Component {
 
 
 
-export const PdpPageContainer = connect(
-  ({ pdp }) => ({ productId: pdp.productId }),
-  (dispatch) => ({ enableBackgroundColorChanging: bindActionCreators(enableBackgroundColorChanging, dispatch) })
+export const PdpPageContainer = compose(
+  connect(
+    ({ pdp }) => ({ productId: pdp.productId }),
+    (dispatch) => ({ enableBackgroundColorChanging: bindActionCreators(enableBackgroundColorChanging, dispatch) })
+  ),
+  connectWithIoC(['productDataService'])
 )(PdpPage);

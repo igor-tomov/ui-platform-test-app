@@ -3,6 +3,18 @@ import { PDP_SET_PRODUCT_ID } from './actions';
 
 
 export default ({ router }) => {
+
+  router.get('/sample', (req, res) => {
+    res.json({
+      product: {
+        id: '123ah3b',
+        title: 'Sample product'
+      }
+    });
+  });
+
+
+
   /* GET users listing. */
   router.get('/:productId', function(req, res) {
     let { $app } = res;
