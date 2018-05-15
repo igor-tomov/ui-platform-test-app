@@ -3,7 +3,7 @@ import { compose } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { enableBackgroundColorChanging } from '../../actions';
+import { enableBackgroundColorChanging, fetchProductDetails } from '../../actions';
 import { connectWithIoC } from 'ui-platform-core/dist/lib/react-enhancers/connectWithIoC';
 import './img/icon/alert.icon.svg';
 import './img/icon/account.icon.svg';
@@ -16,18 +16,21 @@ export class PdpPage extends Component {
   static propTypes = {
     backgroundColor: PropTypes.string,
     enableBackgroundColorChanging: PropTypes.func,
+    fetchProductDetails: PropTypes.func,
     productId: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
     enableBackgroundColorChanging: () => null,
+    fetchProductDetails: () => null,
     backgroundColor: '#fff',
   };
 
 
 
   componentDidMount() {
-    this.props.enableBackgroundColorChanging(['#ffccee', ' #ccffe6', '#f2e6d9']);
+    //this.props.enableBackgroundColorChanging(['#ffccee', ' #ccffe6', '#f2e6d9']);
+    this.props.fetchProductDetails();
   }
 
 
@@ -59,7 +62,7 @@ export class PdpPage extends Component {
 export const PdpPageContainer = compose(
   connect(
     ({ pdp }) => ({ productId: pdp.productId }),
-    (dispatch) => ({ enableBackgroundColorChanging: bindActionCreators(enableBackgroundColorChanging, dispatch) })
+    (dispatch) => bindActionCreators({ enableBackgroundColorChanging, fetchProductDetails }, dispatch)
   ),
   connectWithIoC(['productDataService'])
 )(PdpPage);

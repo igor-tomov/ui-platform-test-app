@@ -1,4 +1,9 @@
-import { PDP_ENABLE_BACKGROUND_COLOR_CHANGING, changeBackgroundColor } from '../actions';
+import {
+  PDP_ENABLE_BACKGROUND_COLOR_CHANGING,
+  PDP_FETCH_PRODUCT_DETAILS,
+  changeBackgroundColor,
+  fillProductDetails,
+} from '../actions';
 
 
 
@@ -7,4 +12,17 @@ const changeColorEpic = action$ =>
     .delay(2000)
     .mapTo(changeBackgroundColor('#ffccee'));
 
-export default [ changeColorEpic ];
+
+// fetch product data
+const fetchProductDetails = (action$, store, { productDataService }) =>
+  action$
+    .ofType(PDP_FETCH_PRODUCT_DETAILS)
+    .mergeMap(
+      () => productDataService.fetchSampleProduct().then(data => fillProductDetails(data))
+    );
+
+
+fetchProductDetails.$inject = ['productDataService'];
+
+
+export default [ changeColorEpic, fetchProductDetails ];
