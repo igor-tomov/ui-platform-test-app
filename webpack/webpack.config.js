@@ -1,5 +1,5 @@
 require('babel-register');
 let webpackConfig = require('./webpack.core.config')();
-require('./webpack.custom.config')(webpackConfig);
+const resultConfig = require('./webpack.custom.config')(webpackConfig);
 
-module.exports = webpackConfig;
+module.exports = resultConfig;
