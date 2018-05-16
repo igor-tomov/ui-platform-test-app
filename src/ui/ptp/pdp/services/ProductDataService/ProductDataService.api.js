@@ -10,4 +10,13 @@ export class ProductApiService extends BaseApiService {
       method: 'GET',
     }).then(({ data }) => data);
   }
+
+
+
+  fetchJavascriptNews() {
+    return this.apiAdapter.request({
+      url: 'https://www.reddit.com/r/javascript.json',
+      method: 'GET',
+    }).then(({ data }) => data);
+  }
 }

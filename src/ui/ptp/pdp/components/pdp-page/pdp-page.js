@@ -10,6 +10,7 @@ import './img/icon/account.icon.svg';
 import './img/icon/arrow-down.icon.svg';
 import { SVGIcon } from 'ui-platform-core/dist/lib/react-components/SVGIcon';
 import './style.scss';
+import { JavascriptNewsContainer } from './JavascriptNews';
 
 export class PdpPage extends Component {
 
@@ -46,6 +47,7 @@ export class PdpPage extends Component {
           <a href="/ptc">Go to Checkout</a>
         </p>
         <div>
+          <JavascriptNewsContainer />
         </div>
         <p>
           <SVGIcon icon="alert.icon"/>

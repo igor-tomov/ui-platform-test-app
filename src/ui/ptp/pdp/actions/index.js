@@ -6,6 +6,10 @@ export const PDP_FETCH_PRODUCT_DETAILS = 'PDP_FETCH_PRODUCT_DETAILS';
 export const PDP_FETCH_PRODUCT_DETAILS_SUCCESS = 'PDP_FETCH_PRODUCT_DETAILS_SUCCESS';
 export const PDP_FETCH_PRODUCT_DETAILS_FAILURE = 'PDP_FETCH_PRODUCT_DETAILS_FAILURE';
 
+export const PDP_FETCH_JAVASCRIPT_NEWS          = 'PDP_FETCH_JAVASCRIPT_NEWS';
+export const PDP_FETCH_JAVASCRIPT_NEWS_SUCCESS  = 'PDP_FETCH_JAVASCRIPT_NEWS_SUCCESS';
+export const PDP_FETCH_JAVASCRIPT_NEWS_FAILURE  = 'PDP_FETCH_JAVASCRIPT_NEWS_FAILURE';
+
 
 
 export const enableBackgroundColorChanging = (colorPool) => ({
@@ -35,3 +39,9 @@ export const fillProductDetails = (product) => ({
     product
   },
 });
+
+
+
+export const fetchJavascriptNews  = () => ({ type: PDP_FETCH_JAVASCRIPT_NEWS });
+export const fillJavascriptNews   = (data) => ({ type: PDP_FETCH_JAVASCRIPT_NEWS_SUCCESS, payload: data });
+export const failJavascriptNews   = (err) => ({ type: PDP_FETCH_JAVASCRIPT_NEWS_FAILURE, payload: err });

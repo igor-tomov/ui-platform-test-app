@@ -1,0 +1,22 @@
+.javascript-news {
+  &__title {
+    text-align: center;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  &__item {
+    list-style: none;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__list &__item:last-child {
+    border-bottom: none;
+  }
+}
