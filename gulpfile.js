@@ -59,7 +59,7 @@ gulp.task('build-backend', () => {
     .pipe(gulp.dest(`${DIST_PATH}/src/core`));
 
   gulp.src([
-    './webpack/bundle-config.js',
+    './webpack/manifest-config.js',
   ])
     .pipe(gulp.dest(`${DIST_PATH}/webpack`));
 

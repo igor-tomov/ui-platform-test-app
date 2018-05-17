@@ -14,7 +14,7 @@
     "start:dev": "NODE_ENV=development node ./bin/www-dev -c config/development.yaml",
     "build:dev": "NODE_ENV=development webpack --watch --mode development --config ./webpack/webpack.config.js",
     "build:prod": "gulp prod",
-    "run:prod": "npm run build:prod && cd dist && npm i --production && NODE_ENV=production node ./bin/www",
+    "start:prod": "npm run build:prod && cd dist && npm i --production && NODE_ENV=production node ./bin/www",
     "predeploy": "NODE_ENV=production gulp clean && npm run lint && npm run build:prod",
     "deploy": "gulp zip",
     "test": "npm run test:app && npm run test:platform",

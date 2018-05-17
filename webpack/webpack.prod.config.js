@@ -3,7 +3,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const {
   BUILD_MANIFEST_FILENAME,
   PUBLIC_PATH
-} = require('./bundle-config');
+} = require('./manifest-config');
 
 module.exports = (coreConfig) => {
   const styleLoadersRule = coreConfig.module.rules.find(rule => rule.use && rule.use[0] === 'style-loader');
