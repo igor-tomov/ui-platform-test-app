@@ -9,7 +9,7 @@ const bundleConfig = require('../webpack/manifest-config');
 const app = initApp({
   rootPath: path.join(__dirname, '..'),
   serverIoCFactory: createServerIocContainer,
-  manifestPath: bundleConfig.OUTPUT_MANIFEST_FILENAME
+  assetsManifestPath: bundleConfig.OUTPUT_MANIFEST_FILENAME
 });
 
 
