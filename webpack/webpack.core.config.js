@@ -6,7 +6,6 @@ const { resolvePagesSettings } = require('ui-platform-core/dist/lib/pages/pages-
 const __DEV__ = process.env.NODE_ENV === 'development';
 const __PROD__ = !process.env.NODE_ENV || process.env.NODE_ENV === 'production';
 
-
 function createPagesEntries() {
   let { cwd, routes } = resolvePagesSettings(process.cwd());
 
@@ -124,8 +123,10 @@ module.exports = () => ({
 
   plugins: [
     new webpack.DefinePlugin({
-      __DEV__,
-      __PROD__
+      'process.env': {
+        __DEV__,
+        __PROD__
+      }
     }),
   ],
 });
