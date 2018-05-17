@@ -59,6 +59,11 @@ gulp.task('build-backend', () => {
     .pipe(gulp.dest(`${DIST_PATH}/src/core`));
 
   gulp.src([
+    './webpack/bundle-config.js',
+  ])
+    .pipe(gulp.dest(`${DIST_PATH}/webpack`));
+
+  gulp.src([
     './bin/*.js'
   ])
     .pipe(babel())

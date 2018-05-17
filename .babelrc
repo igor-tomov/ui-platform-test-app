@@ -10,7 +10,8 @@
       "module-alias", [
         { "src": "./src", "expose": "src" },
         { "src": "./src/core", "expose": "core" },
-        { "src": "./src/ui", "expose": "ui" }
+        { "src": "./src/ui", "expose": "ui" },
+        { "src": "./", "expose": "root" }
       ]
     ],
     [
