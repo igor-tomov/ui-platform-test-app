@@ -1,17 +1,20 @@
 #!/usr/bin/env node
 const path = require('path');
+const cliArgs = require('cli-args');
 const initApp = require('ui-platform-launcher/dist/lib/init-app').default;
 const launchApp = require('ui-platform-launcher/dist/bin/www');
-const { createServerIocContainer } = require('ui-platform-core/dist/lib/ui-application/server.ioc-container');
 const bundleConfig = require('../webpack/manifest-config');
 
+const args = cliArgs(process.argv.slice(2));
+const configPath = args.c;
 
-const app = initApp({
+if (! configPath) {
+  console.warn('`-c` argument with configuration filename is not passed, so default config is going to be used');
+}
+
+
+launchApp(initApp({
   rootPath: path.join(__dirname, '..'),
-  serverIoCFactory: createServerIocContainer,
-  assetsManifestPath: bundleConfig.OUTPUT_MANIFEST_FILENAME
-});
-
-
-
-launchApp(app);
+  configPath,
+  assetsManifestPath: bundleConfig.OUTPUT_MANIFEST_FILENAME,
+}));
