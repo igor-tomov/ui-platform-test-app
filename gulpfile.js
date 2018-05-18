@@ -9,6 +9,7 @@ const zip = require('gulp-zip');
 
 const pjson = require('./package.json');
 const webpackConfig = require('./webpack/webpack.config');
+const { OUTPUT_MANIFEST_FILENAME } = require('./webpack/manifest-config');
 
 
 const DIST_PATH = './dist';
@@ -19,7 +20,8 @@ gulp.task('prod',gulpsync.sync([
   'clean',
   'build-backend',
   'build-frontend',
-  'set-version'
+  'generate-version-file',
+  'generate-launch-params-file'
 ]));
 
 gulp.task('clean-dev', function () {
@@ -75,12 +77,26 @@ gulp.task('build-backend', () => {
   ]).pipe(gulp.dest(`${DIST_PATH}/config`));
 });
 
-gulp.task('set-version', () => {
+gulp.task('generate-version-file', () => {
   return git.short((sha1) => {
     string_src('VERSION', `${pjson.version}-${sha1}`)
       .pipe(gulp.dest(`${DIST_PATH}/`));
   });
 });
+
+
+
+gulp.task('generate-launch-params-file', () => {
+  const launchParams = {
+    configPath: process.env.APP_CONFIG_PATH,
+    assetsManifestPath: OUTPUT_MANIFEST_FILENAME,
+  };
+
+  string_src('LAUNCH_PARAMS', JSON.stringify(launchParams))
+    .pipe(gulp.dest(`${DIST_PATH}/`));
+});
+
+
 
 gulp.task('zip', function () {
   return gulp
