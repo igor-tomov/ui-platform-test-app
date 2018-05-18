@@ -77,7 +77,7 @@ gulp.task('build-backend', () => {
 
 gulp.task('set-version', () => {
   return git.short((sha1) => {
-    string_src('version', `${pjson.version}-${sha1}`)
+    string_src('VERSION', `${pjson.version}-${sha1}`)
       .pipe(gulp.dest(`${DIST_PATH}/`));
   });
 });
