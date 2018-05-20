@@ -1,0 +1,197 @@
+########################################################################################################################
+#
+# Platform specific code which will be moved to separate libraries
+# It includes follow parts which should be designed as independent moudles
+#
+########################################################################################################################
+platform:
+  ######################################################################################################################
+  # Platform code which allow to launch custom project as web-server
+  #   - Express js launching. Mounting server routes.
+  #   - Initialization of client app
+  #   - Initalisation of IoC
+  #   - Configuration management
+  #   - Clusterisation
+  #   - Logging
+  ######################################################################################################################
+  app-shell: {}
+  ######################################################################################################################
+  # Tools which will be used only for development
+  # - Generators
+  #   - Create new project structure
+  #   - Create module, component page e.t.c
+  # - Migrations. Migrate code to new version of platform.
+  ######################################################################################################################
+  app-dev-tools: {}
+config/: {}
+src:
+  ######################################################################################################################
+  # REST Api endpoints for pages from current project which couldn't be implemented
+  # in external services.
+  # Will be mounted to /api/<endpoint_path> path
+  ######################################################################################################################
+  api/:
+    health.route.js: null
+    client-logs.route.js: null
+    auth/:
+      login.route.js: null
+      logout.route.js: null
+      register.route.js: null
+      token.route.js: null
+  ######################################################################################################################
+  # Application UI pages
+  # Will be mounted to /api/<endpoint_path> path
+  ######################################################################################################################
+  ui/:
+    pages:
+      <group-name>(Optional)/:
+        <page-name>/:
+          components: {}
+          actions:
+            index.js: {}
+          redusers:
+            index.js:
+              default: Object
+          <page-name>.route.js':
+            default: Function
+          <page-name>.module.js:
+            default: class <PageName>PageModule
+      ptp/:
+        pdp/:
+          components/: {}
+          pdp.route.js:
+            default: Function
+          pdp.module.js:
+            default: class PdpPageModule
+        plp/:
+          components/: {}
+          plp.route.js:
+            default: Function
+          plp.module.js:
+            default: class PlpPageModule
+      ptc/:
+        components/:
+          cart/: {}
+          checkout/: {}
+          confirm-order/: {}
+        ptc.route.js:
+          default: Function
+        ptc.module.js:
+          default: class PtcPageModule
+    middleware: {}
+  ######################################################################################################################
+  # All components which have services, reducers, actiona, epics, sagas, business
+  # logic should be organised to modules.
+  # Modules will give ability to share such functionality between pages and with
+  # other projects using separate repos
+  ######################################################################################################################
+  modules:
+    <module_name>/:
+      components/: {}
+      reducers/: {}
+      actions/: {}
+      services/: {}
+      <module-name>.module.js:
+        default: class <ModuleName>Module
+    base-layout:
+      <module-name>.module.js:
+        depends on: ['mini-cart', 'user-menu']
+        default: class BaseLayoutModule
+    mini-cart:
+      mini-cart.module.js:
+        default: class MiniCartModule
+    user-menu:
+      user-menu.module.js:
+        default: class UserMenuModule
+
+  ######################################################################################################################
+  # Application entites which performs business logic such as: services, modeles,
+  # business rules. No stores, no reducers, no entites.
+  # This entites can be reused in e2e, smoke tests.
+  # No compoenents should be there
+  ######################################################################################################################
+  core:
+    <simple-domain-name>:
+      ##################################################################################################################
+      # Domain service
+      ##################################################################################################################
+      <simple-domain-name>.service.js:
+        exports:
+          - class <DomainName>Service
+      ##################################################################################################################
+      #
+      # Domain model
+      #
+      ##################################################################################################################
+      <simple-domain-name>.js:
+        exports:
+          - class <DomainName>
+      ##################################################################################################################
+      #
+      # Domain factory
+      #
+      ##################################################################################################################
+      <simple-domain-name>.factory.js: {}
+    <huge-domain-name>:
+      ##################################################################################################################
+      # Domain services
+      ##################################################################################################################
+      services:
+        <domain-first>.service.js:
+          exports:
+            - class <DomainFirst>Service
+        <domain-second>.service.js:
+          exports:
+            - class <DomainSecond>Service
+      ##################################################################################################################
+      #
+      # Domain models
+      #
+      ##################################################################################################################
+      models:
+        <model-one>.js:
+          exports:
+            - class <ModelOne>
+        <model-two>.js:
+          exports:
+            - class <ModelOne>
+      ##################################################################################################################
+      #
+      # Domain factories
+      #
+      ##################################################################################################################
+      factories:
+        <model-one>.factory.js: {}
+        <modle-two>.factory.js: {}
+    product: {}
+    cart: {}
+    user: {}
+    order: {}
+
+  server/:
+    middleware/: {}
+    server.bootsrap.js:
+      default: Functionn
+
+  client:
+    client.bootsrap.js:
+      default: Functionn
+
+  assets:
+    fonts: {}
+    icons: {}
+    images: {}
+
+tests/:
+  e2e/: {}
+  smoke/: {}
+
+public: {}
+
+
+
+
+
+
+
+
