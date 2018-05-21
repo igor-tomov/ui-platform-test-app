@@ -3,7 +3,7 @@
 ## Overview
 Configuration provides you ability to customize your app with set of attributes. These attributes contain information required by application and used across program code.
 
-The whole structure of config data is defined in a base configuration file. In addition, your app can be configured by specifying [environment variables](#setting-config-values-using-environment-variables) or [command-line arguments](#setting-config-values-using-cli-arguments), by changing the local or specific config files.
+The whole structure of config data is defined in a base configuration file. In addition, your app can be configured by specifying [environment variables](#setting-config-values-using-environment-variables) or [command-line arguments](#setting-config-values-using-cli-arguments), by changing the local or specific config files, conventionally located in the `config/` folder of app projects.
 
 In terms of code perspective, work with configuration is encapsulated in [ConfigurationManagement](https://github.com/dynamic-talks/ui-platform-core/blob/master/lib/configuration-manager/modules/ConfigurationManager.js) class. It provides an interface for getting specific config data. Nested object data can be obtain with dot notation (.e.g `api.endpoint.baseUrl`). See [Accessing config in app](#accessing-config-in-app) for more details.
 
