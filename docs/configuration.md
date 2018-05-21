@@ -1,4 +1,4 @@
-# Application Configuration
+# Configuration
 
 ## Overview
 Configuration provides you ability to customize your app with set of attributes. These attributes contain information required by application and used across program code.
