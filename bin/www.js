@@ -2,6 +2,7 @@
 const path = require('path');
 const cliArgs = require('cli-args');
 const initApp = require('ui-platform-launcher/dist/lib/init-app').default;
+const { createServerIocContainer } = require('ui-platform-core/dist/lib/ui-application/server.ioc-container');
 const launchApp = require('ui-platform-launcher/dist/bin/www');
 const bundleConfig = require('../webpack/manifest-config');
 
@@ -15,6 +16,7 @@ if (! configPath) {
 
 launchApp(initApp({
   rootPath: path.join(__dirname, '..'),
+  createServerIocContainer,
   configPath,
   assetsManifestPath: bundleConfig.OUTPUT_MANIFEST_FILENAME,
 }));
