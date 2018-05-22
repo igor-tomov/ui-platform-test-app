@@ -9,7 +9,6 @@ const zip = require('gulp-zip');
 
 const pjson = require('./package.json');
 const webpackConfig = require('./webpack/webpack.config');
-const { OUTPUT_MANIFEST_FILENAME } = require('./webpack/manifest-config');
 
 
 const DIST_PATH = './dist';
@@ -89,7 +88,6 @@ gulp.task('generate-version-file', () => {
 gulp.task('generate-launch-params-file', () => {
   const launchParams = {
     configPath: process.env.APP_CONFIG_PATH,
-    assetsManifestPath: OUTPUT_MANIFEST_FILENAME,
   };
 
   string_src('LAUNCH_PARAMS', JSON.stringify(launchParams))
