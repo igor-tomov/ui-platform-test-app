@@ -61,7 +61,7 @@
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "rxjs": "^5.5.9",
-    "ui-platform-core": "file:/../ui-platform-core"
+    "ui-platform-core": "dynamic-talks/ui-platform-core#master"
   },
   "devDependencies": {
     "@ljharb/eslint-config": "^12.2.1",
@@ -109,7 +109,7 @@
     "svg-sprite-loader": "^3.7.3",
     "svgo": "^1.0.5",
     "svgo-loader": "^2.1.0",
-    "ui-platform-launcher": "file:/../ui-platform-launcher",
+    "ui-platform-launcher": "dynamic-talks/ui-platform-launcher#master",
     "url-loader": "^1.0.1",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",
