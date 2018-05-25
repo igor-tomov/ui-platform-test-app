@@ -1,0 +1,16 @@
+{
+  "ext": "js,json,yaml",
+  "watch": [
+    "config/",
+    "src/",
+    "www/"
+  ],
+  "ignore": [
+    "*.test.js",
+    "**/*.client.js",
+    "*.scss",
+    "*.svg",
+    "*.png",
+    "webpack/*.*"
+  ]
+}
