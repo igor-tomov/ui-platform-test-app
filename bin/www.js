@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 const path = require('path');
 const cliArgs = require('cli-args');
-const initApp = require('ui-platform-launcher/dist/lib/init-app').default;
-const { createServerIocContainer } = require('ui-platform-core/dist/lib/ui-application/server.ioc-container');
+const { initSingleApp } = require('ui-platform-launcher/dist/lib/app/init-app');
+const { resolveAppVersion } = require('ui-platform-core/dist/lib/path-resolvers/app-version.resolver');
 const launchApp = require('ui-platform-launcher/dist/bin/www');
-const bundleConfig = require('../webpack/manifest-config');
 
 const args = cliArgs(process.argv.slice(2));
+const rootDir = path.join(__dirname, '..');
 const configPath = args.c;
 
 if (! configPath) {
@@ -14,9 +14,8 @@ if (! configPath) {
 }
 
 
-launchApp(initApp({
-  rootPath: path.join(__dirname, '..'),
-  createServerIocContainer,
+launchApp(initSingleApp({
+  version: resolveAppVersion(rootDir),
+  rootDir,
   configPath,
-  assetsManifestPath: bundleConfig.OUTPUT_MANIFEST_FILENAME,
 }));
