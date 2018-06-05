@@ -1,0 +1,12 @@
+hello: world
+env: undefined
+
+clientProps:
+  - env
+  - api
+
+api:
+  transports:
+    requestTimeout: 120000
+    rejectUnauthorized: False
+
