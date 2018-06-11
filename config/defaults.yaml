@@ -1,7 +1,7 @@
 hello: world
 env: undefined
 
-clientProps:
+CLIENT_PROPS:
   - env
   - api
 
